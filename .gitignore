@@ -1,0 +1,4 @@
+node_modules/
+pendrive-data/
+*.log
+.DS_Store

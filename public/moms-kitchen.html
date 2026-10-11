@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#F6F0E6" />
+  <title>Mom’s Kitchen · Ages 3–16 Yrs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/moms-kitchen.css" />
+</head>
+<body>
+  <div class="stage">
+    <div class="app">
+      <header class="hero">
+        <div class="brand-row">
+          <div>
+            <p class="eyebrow">Weekday tiffin</p>
+            <h1>Mom’s Kitchen</h1>
+            <p class="ages">Ages 3–16 Yrs</p>
+          </div>
+          <div class="dabba" aria-hidden="true">
+            <svg viewBox="0 0 64 64" width="54" height="54">
+              <rect x="16" y="16" width="32" height="12" rx="4" fill="#1B5E3B"/>
+              <rect x="13" y="27" width="38" height="15" rx="4" fill="#14472C"/>
+              <rect x="28" y="8" width="8" height="10" rx="2" fill="#C6A15A"/>
+              <rect x="20" y="32" width="24" height="2.5" rx="1" fill="#F6F0E6" opacity=".4"/>
+              <circle cx="46" cy="22" r="3" fill="#E7F3EC"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="stepper" role="group" aria-label="Number of children">
+          <button type="button" class="step" id="kidsDec" data-action="kids-dec" aria-label="Fewer children">−</button>
+          <div class="kid-badge" id="kidBadge">
+            <strong id="kidCount">2</strong>
+            <span id="kidWord">kids</span>
+          </div>
+          <button type="button" class="step" id="kidsInc" data-action="kids-inc" aria-label="More children">+</button>
+        </div>
+
+        <p class="track" id="track" aria-live="polite">
+          <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="#1B5E3B" d="M12 2c2 4 7 5.5 7 11a7 7 0 1 1-14 0c0-3 2-5 3.2-6.8C9 8 10 9 12 9c0-3 .5-5.2 0-7z"/></svg>
+          <span id="trackText">2 children → 500g per veggie</span>
+        </p>
+      </header>
+
+      <div class="pill-wrap">
+        <div class="pills" role="tablist" aria-label="Tiffin categories">
+          <button type="button" class="pill" role="tab" id="tab-veggies" data-action="tab" data-tab="veggies" aria-selected="true">Veggies <span class="count" id="count-veggies">4</span></button>
+          <button type="button" class="pill" role="tab" id="tab-sprouts" data-action="tab" data-tab="sprouts" aria-selected="false">Sprouts <span class="count" id="count-sprouts" hidden></span></button>
+          <button type="button" class="pill" role="tab" id="tab-salad" data-action="tab" data-tab="salad" aria-selected="false">Salad <span class="count" id="count-salad" hidden></span></button>
+          <button type="button" class="pill" role="tab" id="tab-addons" data-action="tab" data-tab="addons" aria-selected="false">Extra Add-ons <span class="count" id="count-addons" hidden></span></button>
+        </div>
+      </div>
+      <p class="hint" id="tabHint">Fixed weight on every card. It grows with each child.</p>
+
+      <main>
+        <div class="grid" id="grid" role="tabpanel" aria-label="Items"></div>
+
+        <section class="free" aria-label="Included free">
+          <div class="free-head">
+            <h2>On the house</h2>
+            <p>Marked free. Portions follow the box.</p>
+          </div>
+          <div class="free-row">
+            <article class="free-card glow" id="aromaCard">
+              <p class="free-flag">FREE · 1:1</p>
+              <h3>Aromatic Kit</h3>
+              <p class="free-eq" id="aromaEq">2 children = 2 free kits</p>
+              <p class="free-note">Coriander, mint, ginger &amp; lemon</p>
+            </article>
+            <article class="free-card glow" id="saladCard">
+              <p class="free-flag">FREE · 1:1</p>
+              <h3>Proportionate Salad</h3>
+              <p class="free-eq" id="saladEq">4 veggies = 4 free salads</p>
+              <p class="free-note" id="saladNote">Auto-calculated · Chef’s mix</p>
+              <button type="button" class="text-btn" data-action="tab" data-tab="salad">Choose salads</button>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <div class="bar">
+        <button type="button" class="bar-price" data-action="open-cart" id="priceBtn">
+          <span class="bar-kicker">Kit price <strong id="barTotal">₹180</strong></span>
+          <span class="bar-split" id="barSplit">Base ₹180 · top-ups ₹0</span>
+        </button>
+        <button type="button" class="cta" data-action="open-cart" id="cartBtn">
+          View Tiffin Box Cart
+          <span class="cta-count" id="ctaCount">4</span>
+        </button>
+      </div>
+
+      <div class="scrim" data-action="close-cart" hidden></div>
+      <aside class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="cartTitle" hidden>
+        <header class="sheet-top">
+          <div>
+            <p class="eyebrow">Mom’s Kitchen</p>
+            <h2 id="cartTitle">Tiffin box</h2>
+          </div>
+          <button type="button" class="icon-btn" data-action="close-cart" aria-label="Close cart">×</button>
+        </header>
+        <div class="sheet-body" id="sheetBody"></div>
+        <footer class="sheet-foot">
+          <div>
+            <p class="bar-kicker">Kit price <strong id="sheetTotal">₹180</strong></p>
+            <p class="sheet-sub" id="sheetSub">Saved on this device</p>
+          </div>
+          <button type="button" class="text-btn" data-action="reset">Reset box</button>
+        </footer>
+      </aside>
+      <p id="live" class="sr" aria-live="polite"></p>
+    </div>
+  </div>
+  <noscript>Mom’s Kitchen needs JavaScript to build the tiffin box.</noscript>
+  <script src="/moms-kitchen.js"></script>
+</body>
+</html>

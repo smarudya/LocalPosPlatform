@@ -1,0 +1,22 @@
+{
+  "name": "pendrive-menu-pos",
+  "version": "1.0.0",
+  "description": "Local USB-backed restaurant menu host with Swiggy/Zomato/Toing sync",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "seed": "node server/seed.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "playwright": "^1.49.1"
+  }
+}
