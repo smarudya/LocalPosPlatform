@@ -1,0 +1,11 @@
+{
+  "port": 3847,
+  "pendrivePath": "./pendrive-data",
+  "maxViewDevices": 3,
+  "restaurantName": "My Kitchen",
+  "aggregators": {
+    "swiggy": { "enabled": true, "outletId": "", "apiKey": "", "dryRun": true },
+    "zomato": { "enabled": true, "outletId": "", "apiKey": "", "dryRun": true },
+    "toing": { "enabled": true, "outletId": "", "apiKey": "", "dryRun": true }
+  }
+}
